@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f4f8;
+}
+
+.page-title {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+.table-container {
+    width: 95%;
+    margin: auto;
+}
+
+.govt-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.govt-table th,
+.govt-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.govt-table th {
+    background-color: #e6edf3;
+    font-weight: 600;
+}
+
+.apply-btn {
+    background-color: #1a5fb4;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.apply-btn:hover {
+    background-color: #144a8a;
+}
+
+.last-updated {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #6c757d;
+}

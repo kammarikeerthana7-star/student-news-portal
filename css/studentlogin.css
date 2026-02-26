@@ -1,0 +1,64 @@
+body{
+    margin:0;
+    font-family: Arial;
+    background-image: url("../images/bg1.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-box{
+
+    background:white;
+    padding:40px;
+    width:350px;
+    border-radius:10px;
+    box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.login-box h2{
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+.links{
+    text-align:center;
+    margin-top:10px;
+}
+
+.google-btn{
+    background:#db4437;
+    margin-top:10px;
+}
+
+.error{
+    color:red;
+    text-align:center;
+}
