@@ -1,4 +1,5 @@
 <div class="sidebar">
+<<<<<<< HEAD
     <h2>Admin Panel</h2>
 
     <ul>
@@ -16,3 +17,15 @@
         <li><a href="logout.php">Logout</a></li>
     </ul>
 </div>
+=======
+<h2>Admin Panel</h2>
+
+<a href="dashboard.php">Dashboard</a>
+<a href="#">Categories</a>
+<a href="#">Announcements</a>
+<a href="#">Posts</a>
+<a href="#">Students</a>
+<a href="../index.php">Home</a>
+<a href="logout.php">Logout</a>
+</div>
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7

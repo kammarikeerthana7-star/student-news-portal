@@ -1,7 +1,10 @@
 <?php
+<<<<<<< HEAD
 include 'db.php';
 ?>
 <?php
+=======
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
 // index.php
 session_start();
 ?>
@@ -30,6 +33,7 @@ session_start();
     </form>
 
     <div class="auth">
+<<<<<<< HEAD
     <div class="dropdown">
         <button class="dropbtn">Login ▾</button>
         <div class="dropdown-content">
@@ -40,6 +44,11 @@ session_start();
 
     <a href="register.php" class="btn">Register</a>
 </div>
+=======
+        <a href="login.php">Login</a>
+        <a href="register.php" class="btn">Register</a>
+    </div>
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
 </header>
 
 <!-- WELCOME SECTION -->
@@ -55,36 +64,60 @@ session_start();
     <div class="card"><br>
         <img src="images/govt_jobs.png" alt="Govt Job">
         <h3>Govt Job</h3>
+<<<<<<< HEAD
         <a href="studentlogin.php">View More</a>
+=======
+        <a href="govt-job.php">View More</a>
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
     </div>
 
     <div class="card">
         <img src="images/scholarship.jpg" alt="Scholarship">
         <h3>Govt Scholarship</h3>
+<<<<<<< HEAD
         <a href="studentlogin.php">View More</a>
+=======
+        <a href="scholarship.php">View More</a>
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
     </div>
 
     <div class="card">
         <img src="images/results.jpg" alt="Results">
         <h3>Results</h3>
+<<<<<<< HEAD
         <a href="studentlogin.php">View More</a>
+=======
+        <a href="results.php">View More</a>
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
     </div>
 
     <div class="card">
         <img src="images/sports.jpg" alt="Sports">
         <h3>Sports</h3>
+<<<<<<< HEAD
         <a href="studentlogin.php">View More</a>
+=======
+        <a href="sports.php">View More</a>
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
     </div>
 
     <div class="card">
         <img src="images/article.jpg" alt="Article">
         <h3>Articles</h3>
+<<<<<<< HEAD
         <a href="studentlogin.php">View More</a>
+=======
+        <a href="articles.php">View More</a>
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
     </div>
     <div class="card">
         <img src="images/placements.jpeg" alt="Placements">
         <h3>Placements</h3>
+<<<<<<< HEAD
         <a href="studentlogin.php">View More</a>
+=======
+        <a href="placements.php">View More</a>
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
     </div>
     </div>
 

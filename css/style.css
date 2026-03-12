@@ -65,6 +65,7 @@ body {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 /* Dropdown container */
 .dropdown {
     position: relative;
@@ -109,6 +110,20 @@ body {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+=======
+.auth a {
+    color: #0a3d62;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.auth .btn {
+    background: #1e90ff;
+    padding: 7px 12px;
+    border-radius: 4px;
+}
+
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
 /* WELCOME */
 .welcome {
     text-align: center;

@@ -20,6 +20,7 @@ if(isset($_POST['register'])){
     } else {
         echo "<script>alert('Registration Successful (DB not connected yet)');</script>";
     }
+<<<<<<< HEAD
 
     // post to database
     include 'db.php';
@@ -29,6 +30,8 @@ if(isset($_POST['register'])){
     } else {
         echo "<script>alert('Registration Failed');</script>";
     }   
+=======
+>>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
 }
 ?>
 <!DOCTYPE html>
