@@ -1,0 +1,64 @@
+/* Sidebar */
+.sidebar{
+width:220px;
+height:100vh;
+background:#1f2937;
+position:fixed;
+left:0;
+top:0;
+padding-top:20px;
+}
+
+/* Sidebar Title */
+.sidebar h2{
+color:white;
+text-align:center;
+margin-bottom:25px;
+}
+
+/* Menu */
+.sidebar ul{
+list-style:none;
+padding:0;
+}
+
+.sidebar ul li{
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+/* Links */
+.sidebar ul li a{
+display:block;
+color:#d1d5db;
+text-decoration:none;
+padding:12px 20px;
+transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+background:#2563eb;
+color:white;
+}
+
+/* Main Content */
+.main-content{
+margin-left:220px;
+padding:30px;
+}
+/* Table Styling */
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th, td{
+padding:12px;
+text-align:left;
+border-bottom:1px solid #ddd;
+}
+
+th{
+background:#2563eb;
+color:white;
+}

@@ -12,40 +12,60 @@ body {
 .sidebar {
     width: 250px;
     height: 100vh;
-    background: #0d3b66;
+    background: #1e3a5f;
     color: white;
-    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
+/* Sidebar title */
 .sidebar h2 {
-    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    background: #16324a;
+    font-size: 22px;
 }
 
+/* Menu list */
 .sidebar ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
+/* Menu items */
 .sidebar ul li {
-    margin: 15px 0;
+    padding: 15px 20px;
+    border-left: 4px solid transparent;
+    transition: 0.3s;
 }
 
+/* Menu links */
 .sidebar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    display: block;
 }
 
-.sidebar ul li a:hover {
-    color: #ffd166;
+/* Hover effect */
+.sidebar ul li:hover {
+    background: #0d3b66;
+    border-left: 4px solid #00b4ff;
 }
 
-/* Main */
+/* Active menu */
+.sidebar ul li.active {
+    background: #0d3b66;
+    border-left: 4px solid #00b4ff;
+}
+
+/* Main content adjustment */
 .main {
-    flex: 1;
+    margin-left: 250px;
     padding: 20px;
 }
-
 /* Topbar */
 .topbar {
     background: white;

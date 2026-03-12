@@ -1,84 +1,150 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
+if(!isset($_SESSION['student_name'])){
+    header("Location: ../studentlogin.php");
     exit();
 }
+
+include("../db.php");
+
+// Fetch all jobs ordered by last date
+$sql = "SELECT * FROM scholarships ORDER BY last_date ASC";
+$result = mysqli_query($conn, $sql);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Government Scholarships</title>
+    <title>Scholarships</title>
     <link rel="stylesheet" href="../css/scholarship.css">
+    <style>
+        table {
+            width: 95%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        th {
+            background-color: #002147;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e6f0ff;
+        }
+
+        .btn-notification {
+            background-color: #007bff;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-apply {
+            background-color: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .last-updated {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-<h2 class="page-title">Government Scholarships</h2>
+<h2 class="page-title">Scholarship Notifications</h2>
 
-<div class="table-container">
-    <table class="govt-table">
-        <thead>
-            <tr>
-                <th>Name of Scholarship</th>
-                <th>Start Date</th>
-                <th>Documents Required</th>
-                <th>Application Form</th>
-                <th>Last Date</th>
-            </tr>
-        </thead>
+<?php
+if(mysqli_num_rows($result) > 0)
+{
+?>
 
-        <tbody>
-            <tr>
-                <td>National Scholarship Portal (NSP)</td>
-                <td>01 June 2026</td>
-                <td>
-                    Aadhaar Card,<br>
-                    Income Certificate,<br>
-                    Caste Certificate,<br>
-                    Bank Passbook
-                </td>
-                <td>
-                    <a href="../applications/scholarship-apply.php?name=National Scholarship Portal (NSP)" class="apply-btn">Apply</a>
-                </td>
-                <td>31 August 2026</td>
-            </tr>
+<table>
 
-            <tr>
-                <td>Post Matric Scholarship (SC/ST)</td>
-                <td>15 July 2026</td>
-                <td>
-                    Aadhaar Card,<br>
-                    Bonafide Certificate,<br>
-                    Income Certificate,<br>
-                    Caste Certificate
-                </td>
-                <td>
-                    <a href="../applications/scholarship-apply.php?name=Post Matric Scholarship (SC/ST)" class="apply-btn">Apply</a>
-                </td>
-                <td>30 September 2026</td>
-            </tr>
+<tr>
+    <th>Scholarship Name</th>
+    <th>Provider</th>
+    <th>Eligibility</th>
+    <th>Amount</th>
+    <th>Start Date</th>
+    <th>Last Date</th>
+    <th>Description</th>
+    <th>Notification</th>
+    <th>Apply</th>
+</tr>
 
-            <tr>
-                <td>Merit-cum-Means Scholarship</td>
-                <td>01 August 2026</td>
-                <td>
-                    Income Certificate,<br>
-                    Marks Memo,<br>
-                    Bank Account Details
-                </td>
-                <td>
-                    <a href="../applications/scholarship-apply.php?name=Merit-cum-Means Scholarship" class="apply-btn">Apply</a>
-                </td>
-                <td>15 October 2026</td>
-            </tr>
-        </tbody>
-    </table>
+<?php
+while($row = mysqli_fetch_assoc($result))
+{
+?>
 
-    <p class="last-updated">
-        Last Updated: 11 February 2026
-    </p>
-</div>
+<tr>
+
+<td><?php echo htmlspecialchars($row['scholarship_name']); ?></td>
+<td><?php echo htmlspecialchars($row['provider']); ?></td>
+<td><?php echo htmlspecialchars($row['eligibility']); ?></td>
+<td><?php echo htmlspecialchars($row['amount']); ?></td>
+<td><?php echo htmlspecialchars($row['start_date']); ?></td>
+<td><?php echo htmlspecialchars($row['last_date']); ?></td>
+<td><?php echo htmlspecialchars($row['description']); ?></td>
+
+<td>
+<?php if(!empty($row['notification'])) { ?>
+    <a href="<?php echo htmlspecialchars($row['notification']); ?>" target="_blank">
+        View
+    </a>
+<?php } else { echo "No Link"; } ?>
+</td>
+
+<td>
+<?php if(!empty($row['application_link'])) { ?>
+    <a href="<?php echo htmlspecialchars($row['application_link']); ?>" target="_blank">
+        Apply
+    </a>
+<?php } else { echo "No Link"; } ?>
+</td></tr>
+
+<?php
+}
+?>
+
+</table>
+
+<?php
+}
+else
+{
+    echo "<p style='text-align:center;'>No Scholarships Available</p>";
+}
+?>
+
+<p class="last-updated">
+Last Updated: <?php echo date("d F Y"); ?>
+</p>
 
 </body>
 </html>

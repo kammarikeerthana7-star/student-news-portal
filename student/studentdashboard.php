@@ -33,10 +33,10 @@ $recentUpdates = [
 <div class="sidebar">
     <h2>Student Portal</h2>
     <a href="#">🏠 Dashboard</a>
-    <a href="govt-job.php">💼 Government Jobs</a>
+    <a href="govt-job.php">Government Jobs</a>
     <a href="scholarship.php">🎓 Scholarships</a>
     <a href="sports.php">🏆 Sports</a>
-    <a href="articles.php">📰 Articles</a>
+    <a href="article.php">📰 Articles</a>
     <a href="placements.php">🏢 Placements</a>
     <a href="results.php">📊 Results</a>
     <a href="#">🚪 Logout</a>

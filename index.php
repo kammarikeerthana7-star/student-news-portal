@@ -55,36 +55,36 @@ session_start();
     <div class="card"><br>
         <img src="images/govt_jobs.png" alt="Govt Job">
         <h3>Govt Job</h3>
-        <a href="govt-job.php">View More</a>
+        <a href="studentlogin.php">View More</a>
     </div>
 
     <div class="card">
         <img src="images/scholarship.jpg" alt="Scholarship">
         <h3>Govt Scholarship</h3>
-        <a href="scholarship.php">View More</a>
+        <a href="studentlogin.php">View More</a>
     </div>
 
     <div class="card">
         <img src="images/results.jpg" alt="Results">
         <h3>Results</h3>
-        <a href="results.php">View More</a>
+        <a href="studentlogin.php">View More</a>
     </div>
 
     <div class="card">
         <img src="images/sports.jpg" alt="Sports">
         <h3>Sports</h3>
-        <a href="sports.php">View More</a>
+        <a href="studentlogin.php">View More</a>
     </div>
 
     <div class="card">
         <img src="images/article.jpg" alt="Article">
         <h3>Articles</h3>
-        <a href="articles.php">View More</a>
+        <a href="studentlogin.php">View More</a>
     </div>
     <div class="card">
         <img src="images/placements.jpeg" alt="Placements">
         <h3>Placements</h3>
-        <a href="placements.php">View More</a>
+        <a href="studentlogin.php">View More</a>
     </div>
     </div>
 

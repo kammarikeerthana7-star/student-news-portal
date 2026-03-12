@@ -1,10 +1,5 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "student-news-portal";
-
-$conn = mysqli_connect($host, $user, $password, $database);
+$conn = mysqli_connect("localhost", "root", "", "student-news-portal");
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());

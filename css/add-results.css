@@ -1,0 +1,111 @@
+/* Page Background */
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#f4f6f9;
+margin:0;
+padding:0;
+}
+
+/* Main Content Area */
+
+.main-content{
+margin-left:240px;
+padding:30px;
+}
+
+/* Page Title */
+
+h2{
+margin-bottom:20px;
+color:#2c3e50;
+}
+
+/* Form Design */
+
+form{
+background:white;
+padding:25px;
+border-radius:8px;
+width:500px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+form input{
+width:100%;
+padding:10px;
+margin:8px 0 15px 0;
+border:1px solid #ccc;
+border-radius:5px;
+font-size:14px;
+}
+
+/* Button */
+
+button{
+background:#2c3e50;
+color:white;
+padding:10px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+background:#34495e;
+}
+
+/* Table Design */
+
+table{
+width:100%;
+background:white;
+border-collapse:collapse;
+margin-top:20px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+table th{
+background:#2c3e50;
+color:white;
+padding:12px;
+text-align:center;
+}
+
+table td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid #ddd;
+}
+
+/* Table Row Hover */
+
+table tr:hover{
+background:#f2f2f2;
+}
+
+/* Edit Button */
+
+a{
+text-decoration:none;
+padding:6px 12px;
+border-radius:4px;
+font-size:14px;
+}
+
+a[href*="edit"]{
+background:#3498db;
+color:white;
+}
+
+/* Delete Button */
+
+a[href*="delete"]{
+background:#e74c3c;
+color:white;
+}
+
+a:hover{
+opacity:0.9;
+}

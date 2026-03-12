@@ -1,89 +1,84 @@
 <?php
 session_start();
-
-if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
+if(!isset($_SESSION['student_name'])){
+    header("Location: ../studentlogin.php");
     exit();
 }
+
+include("../db.php");
+
+$sql = "SELECT * FROM placements ORDER BY last_date ASC";
+$result = mysqli_query($conn,$sql);
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Government Jobs</title>
-    <link rel="stylesheet" href="/student-news-portal/css/placement.css">
+<title>Placement Notifications</title>
 </head>
 <body>
 
-<h2 class="page-title">Government Job Notifications</h2>
+<h2 style="text-align:center;">Placement Notifications</h2>
+<?php
+if(mysqli_num_rows($result) > 0)
+{
+?>
 
-<table class="govt-table">
-    <thead>
-        <tr>
-            <th>Company Name</th>
-            <th> Job Role</th>
-            <th>Eligibility</th>
-            <th>Package</th>
-            <th>Apply</th>
-            <th>Last Date</th>
-        </tr>
-    </thead>
+<table border="1" width="95%" align="center">
 
-    <tbody>
-        <tr>
-            <td>TCS</td>
-            <td>Software Engineer</td>
-            <td>B.Tech/MCA</td>
-            <td>3.5 LPA</td>
-            <td>
-    <a href="../applications/placement-apply.php?company=TCS">
-        <button>Apply</button>
-    </a>
+<tr>
+<th>Company Name</th>
+<th>Job Role</th>
+<th>Qualification</th>
+<th>Salary</th>
+<th>Location</th>
+<th>Drive Date</th>
+<th>Last Date</th>
+<th>Notification</th>
+<th>Apply</th>
+</tr>
+
+<?php while($row=mysqli_fetch_assoc($result)) { ?>
+
+<tr>
+
+<td><?php echo $row['company_name']; ?></td>
+<td><?php echo $row['job_role']; ?></td>
+<td><?php echo $row['qualification']; ?></td>
+<td><?php echo $row['salary']; ?></td>
+<td><?php echo $row['location']; ?></td>
+<td><?php echo $row['drive_date']; ?></td>
+<td><?php echo $row['last_date']; ?></td>
+
+<td>
+<a href="<?php echo $row['notification']; ?>" target="_blank">
+View
+</a>
 </td>
-            <td>20 Mar 2026</td>
-        </tr>
 
-        <tr>
-            <td>Infosys</td>
-            <td>System Engineer</td>
-            <td>B.Tech/B.Sc</td>
-            <td>4.5 LPA</td>
-            <td>
-    <a href="../applications/placement-apply.php?company=Infosys">
-        <button>Apply</button>
-    </a>
+<td>
+<a href="<?php echo $row['application_link']; ?>" target="_blank">
+Apply
+</a>
 </td>
-            <td>25 Mar 2026</td>
-        </tr>
 
-        <tr>
-            <td>Wipro</td>
-            <td>Project Engineer</td>
-            <td>Any Graduate</td>
-            <td>3.0 LPA</td>
-            <td>
-    <a href="../applications/placement-apply.php?company=Wipro">
-        <button>Apply</button>
-    </a>
-</td>
-            <td>28 Mar 2026</td>
-        </tr>
+</tr>
 
-        <tr>
-            <td>Accenture</td>
-            <td>Trainee Engineer</td>
-            <td>Any Graduate</td>
-            <td>3.5 LPA</td>
-            <td>
-    <a href="../applications/placement-apply.php?company=Accenture">
-        <button>Apply</button>
-</a></td>
-            <td>15 Apr 2026</td>
-        </tr>
-    </tbody>
+<?php } ?>
+
 </table>
+<?php
+}
+else
+{
+    echo "<p style='text-align:center;'>No Jobs Available</p>";
+}
+?>
 
-<p class="last-updated">Last Updated: 11 February 2026</p>
+<p class="last-updated">
+Last Updated: <?php echo date("d F Y"); ?>
+</p>
+
 
 </body>
 </html>
