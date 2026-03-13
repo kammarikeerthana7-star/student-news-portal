@@ -1,65 +1,63 @@
 <?php
 session_start();
-// Demo student credentials
-$valid_email = "student@gmail.com";
-$valid_password = "1234";
+include "db.php";
 
-if(isset($_POST['login'])){
+$message = "";
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if($email == $valid_email && $password == $valid_password){
 
-        $_SESSION['student_name'] = "Keerthana";
-header("Location: student/studentdashboard.php");
-exit();
+    $regno = $_POST["regno"];
+    $password = $_POST["password"];
 
-    }else{
-        $error = "Invalid Email or Password";
+    $query = "SELECT * FROM students WHERE regno='$regno' AND password='$password'";
+    $result = mysqli_query($conn,$query);
+
+    if(mysqli_num_rows($result) > 0){
+
+        $row = mysqli_fetch_assoc($result);
+
+        $_SESSION['student_name'] = $row['fullname'];
+        $_SESSION['student_regno'] = $row['regno'];
+
+        header("Location: student/studentdashboard.php");
+        exit();
+
+    } else {
+        $message = "Invalid Registration Number or Password";
     }
 }
-?>
-
-<!DOCTYPE html>
-<html>
+?><!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Student Login</title>
-<link rel="stylesheet" href="./css/studentlogin.css">
+  <meta charset="UTF-8">
+  <title>Student Login</title>
+  <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
 
-<div class="container">
+<div class="overlay">
 
-<div class="login-box">
+  <div class="login-card">
+    <h2>WELCOME</h2>
 
-<h2>Student Login</h2>
+    <form method="post">
 
-<div class="error">
-<?php if(isset($error)) {echo $error;} ?>
+<input type="text" name="regno" placeholder="Registration Number" required>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<div class="options">
+<label><input type="checkbox"> Remember me</label>
+<a href="#">Forgot Password?</a>
+<a href="register.php">Register</a>
 </div>
 
-<form method="POST">
-
-<input type="email" name="email" placeholder="Enter Email" required>
-
-<input type="password" name="password" placeholder="Enter Password" required>
-
-<button type="submit" name="login">Login</button>
+<button type="submit" class="login-btn">Login</button>
 
 </form>
-
-<div class="links">
-
-<a href="#">Forgot Password?</a><br><br>
-
-<a href="register.php">Register</a>
-
-<button class="google-btn">Login with Google</button>
-
-</div>
-
-</div>
+    <p class="message"><?php echo $message; ?></p>
+  </div>
 
 </div>
 

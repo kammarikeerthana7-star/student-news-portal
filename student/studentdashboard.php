@@ -1,14 +1,40 @@
 <?php
 session_start();
-// Dummy Data (No Database)
-$studentName = "keerthana";
-$jobs = 12;
-$scholarships = 8;
-$placements = 5;
-$results = 4;
-$sports = 15;
-$articles = 10;
+include "../db.php";
 
+$studentName = isset($_SESSION['student_name']) ? $_SESSION['student_name'] : "Student";
+
+// Government Jobs Count
+$job_query = "SELECT COUNT(*) as total FROM govt_jobs";
+$job_result = mysqli_query($conn,$job_query);
+$jobs = mysqli_fetch_assoc($job_result)['total'];
+
+// Scholarship Count
+$sch_query = "SELECT COUNT(*) as total FROM scholarships";
+$sch_result = mysqli_query($conn,$sch_query);
+$scholarships = mysqli_fetch_assoc($sch_result)['total'];
+
+// Placements Count
+$place_query = "SELECT COUNT(*) as total FROM placements";
+$place_result = mysqli_query($conn,$place_query);
+$placements = mysqli_fetch_assoc($place_result)['total'];
+
+// Results Count
+$res_query = "SELECT COUNT(*) as total FROM results";
+$res_result = mysqli_query($conn,$res_query);
+$results = mysqli_fetch_assoc($res_result)['total'];
+
+// Sports Count
+$sports_query = "SELECT COUNT(*) as total FROM sports";
+$sports_result = mysqli_query($conn,$sports_query);
+$sports = mysqli_fetch_assoc($sports_result)['total'];
+
+// Articles Count
+$article_query = "SELECT COUNT(*) as total FROM articles";
+$article_result = mysqli_query($conn,$article_query);
+$articles = mysqli_fetch_assoc($article_result)['total'];
+
+// Recent Updates (Dummy Data)
 $recentUpdates = [
     "TSPSC Group 2 Notification Released",
     "National Scholarship Portal Open",
@@ -17,7 +43,6 @@ $recentUpdates = [
     "Inter-College Sports Meet Announced"
 ];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,4 +126,4 @@ $recentUpdates = [
 </div>
 
 </body>
-</html>
+</html> 

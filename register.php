@@ -1,4 +1,4 @@
-<?php
+?<?php
 // register.php
 if(isset($_POST['register'])){
 
@@ -16,22 +16,25 @@ if(isset($_POST['register'])){
     $confirm = $_POST['confirm'];
 
     if($password != $confirm){
-        echo "<script>alert('Passwords do not match');</script>";
-    } else {
-        echo "<script>alert('Registration Successful (DB not connected yet)');</script>";
-    }
-<<<<<<< HEAD
 
-    // post to database
-    include 'db.php';
-    $sql = "INSERT INTO students (fullname, username, email, mobile, regno, course, semester, college, password) VALUES ('$fullname', '$username', '$email', '$mobile', '$regno', '$course', '$semester', '$college', '$password')";
-    if(mysqli_query($conn, $sql)){
-        echo "<script>alert('Registration Successful');</script>";
+        echo "<script>alert('Passwords do not match');</script>";
+
     } else {
-        echo "<script>alert('Registration Failed');</script>";
-    }   
-=======
->>>>>>> 01b97edd98bec8a9c9a89361f3c82d3de9936be7
+
+        include 'db.php';
+
+        $sql = "INSERT INTO students 
+        (fullname, username, email, mobile, regno, course, semester, college, password) 
+        VALUES 
+        ('$fullname', '$username', '$email', '$mobile', '$regno', '$course', '$semester', '$college', '$password')";
+
+        if(mysqli_query($conn, $sql)){
+            echo "<script>alert('Registration Successful');</script>";
+        } else {
+            echo "<script>alert('Registration Failed');</script>";
+        }
+
+    }
 }
 ?>
 <!DOCTYPE html>
